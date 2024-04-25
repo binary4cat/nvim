@@ -44,3 +44,11 @@ if vim.g.neovide then
   -- vim.g.neovide_fullscreen = true
   vim.g.neovide_cursor_animate_in_insert_mode = true
 end
+
+-- 检测操作系统类型
+if vim.fn.has("win32") == 1 or vim.fn.has("win64") == 1 then
+  -- 如果是 Windows 系统，设置 shell 为 PowerShell
+  vim.opt.shell = "pwsh"
+  -- 设置 shellcmdflag 以确保 PowerShell 能够正确运行
+  vim.opt.shellcmdflag = "-NoLogo -NoProfile -Command"
+end
